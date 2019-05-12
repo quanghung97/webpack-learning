@@ -25,7 +25,9 @@ module.exports = {
         overlay: true,
         stats: 'minimal',
         inline: true,
-        contentBase: '/'
+        contentBase: '/',
+        // https: true,
+        // host: "testapp.test"
     },
     entry: {
         bundle: './src/index.js',
