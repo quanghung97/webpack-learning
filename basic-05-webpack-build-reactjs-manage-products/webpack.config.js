@@ -18,6 +18,19 @@ module.exports = {
         bundle: './src/index.js',
         vendor: VENDOR_LIBS
     },
+    //fix duplicate vendor in bundle
+    optimization: {
+        splitChunks: {
+          cacheGroups: {
+            vendor: {
+              chunks: "initial",
+              test: "vendor",
+              name: "vendor",
+              enforce: true
+            }
+          }
+        }
+    },
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].js'
