@@ -19,7 +19,13 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 3000
+        port: 3000,
+        disableHostCheck: true,
+        historyApiFallback: true,
+        overlay: true,
+        stats: 'minimal',
+        inline: true,
+        contentBase: '/'
     },
     entry: {
         bundle: './src/index.js',
