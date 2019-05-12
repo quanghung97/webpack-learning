@@ -16,6 +16,11 @@ const VENDOR_LIBS = [
 ]
 
 module.exports = {
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 3000
+    },
     entry: {
         bundle: './src/index.js',
         vendor: VENDOR_LIBS
