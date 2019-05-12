@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const VENDOR_LIBS = [
     'axios',
@@ -67,6 +68,9 @@ module.exports = {
             'window.$': 'jquery',
             'window.jQuery': 'jquery',
             Popper: ['popper.js', 'default'],
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/index.html'
         })
     ]
 }
