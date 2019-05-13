@@ -2,10 +2,8 @@ import * as Types from './../constants/ActionTypes'
 import callApi from './../utils/apiCaller'
 
 export const actFetchProductsRequest = () => {
-    return (dispatch) => {
-        return callApi('products', 'GET', null).then(res => {
-            dispatch(actFetchProducts(res.data))
-        })
+    return {
+        type: Types.FETCH_PRODUCTS_API
     }
 }
 
@@ -17,10 +15,9 @@ export const actFetchProducts = (products) => {
 }
 
 export const actDeleteProductRequest = (id) => {
-    return dispatch => {
-        return callApi(`products/${id}`, 'DELETE', null).then(res => {
-            dispatch(actDeleteProduct(id))
-        })
+    return {
+        type: Types.DELETE_PRODUCT_API,
+        id
     }
 }
 
@@ -32,10 +29,9 @@ export const actDeleteProduct = (id) => {
 }
 
 export const actAddProductRequest = (product) => {
-    return dispatch => {
-        return callApi(`products`, 'POST', product).then(res => {
-            dispatch(actAddProduct(res.data))
-        })
+    return {
+        type: Types.ADD_PRODUCT_API,
+        product
     }
 }
 
@@ -47,10 +43,9 @@ export const actAddProduct = (product) => {
 }
 
 export const actGetProductRequest = (id) => {
-    return dispatch => {
-        return callApi(`products/${id}`, 'GET', null).then(res => {
-            dispatch(actGetProduct(res.data))
-        })
+    return {
+        type: Types.EDIT_PRODUCT_API,
+        id
     }
 }
 
@@ -62,10 +57,9 @@ export const actGetProduct = (product) => {
 }
 
 export const actUpdateProductRequest = (product) => {
-    return dispatch => {
-        return callApi(`products/${product.id}`, 'PUT', product).then(res => {
-            dispatch(actUpdateProduct(res.data))
-        })
+    return {
+        type: Types.UPDATE_PRODUCT_API,
+        product
     }
 }
 
